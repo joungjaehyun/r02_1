@@ -1,15 +1,17 @@
-
-import BodyLayout from "./BodyLayout";
 import SampleNav from "./nav/SampleNav";
 
 const BasicLayout = ({children}) => {
   return ( 
-    <div className="m-auto m-5 p-5" >
-      <div><SampleNav></SampleNav></div>
-      <br></br>
-      <div><BodyLayout></BodyLayout></div>
-      
+   
+    <div className="container mx-auto min-w-[1280px] bg-gradient-to-r from-blue-500 to-green-300">
+      <div>
+        <SampleNav></SampleNav>
+      </div>
+      <div>
+        {children}
+      </div>
     </div>
+
   );
 }
  
