@@ -4,9 +4,9 @@ import SampleNav from "./nav/SampleNav";
 
 const BasicLayout = ({children}) => {
   return ( 
-    <div className="bg-sky-300" >
+    <div className="m-auto m-5 p-5" >
       <div><SampleNav></SampleNav></div>
-      
+      <br></br>
       <div><BodyLayout></BodyLayout></div>
       
     </div>

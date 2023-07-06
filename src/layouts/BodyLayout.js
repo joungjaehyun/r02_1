@@ -1,7 +1,7 @@
 const BodyLayout = () => {
     return (  
-        <div>
-               <img className="m-auto object-cover w-[1280px]" 
+        <div className='w-[full]'>
+               <img className="m-auto object-cover " 
                src={require('../image/BackGround.jpg')}></img>
         </div>
     );
