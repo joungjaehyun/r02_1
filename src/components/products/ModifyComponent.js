@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { deleteProduct, getProduct } from "../../api/productAPI"
+import { deleteProduct, getProduct, putProduct } from "../../api/productAPI"
 
 const initState = {
     pno: 0,
@@ -56,7 +56,9 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
         for (let file of arr) {
             formData.append("files", file)
         }
-
+        putProduct(formData).then(data=>{
+            console.log(data)
+        })
 
     }
 
