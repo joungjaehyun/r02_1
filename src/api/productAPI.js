@@ -25,3 +25,10 @@ export const getList = async (queryObj) =>{
 
     return res.data
 }
+
+export const getProduct = async (pno) =>{
+
+    const res = await axios.get(`http://localhost:8080/api/products/${pno}`)
+
+    return res.data
+}
