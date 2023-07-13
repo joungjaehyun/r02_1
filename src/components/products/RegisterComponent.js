@@ -36,9 +36,12 @@ const RegisterComponent = ({moveList}) => {
          formData.append("files",file)
       }
       
-      postProduct(formData).then( e=>{
+      postProduct(formData).then( data=>{
  
-         setProduct({...initState})
+       const rno = data.result
+       alert(`${rno}번 상품이 등록되었습니다.`) 
+        
+        moveList()
       })
  
      }
