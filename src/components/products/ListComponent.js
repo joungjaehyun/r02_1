@@ -42,15 +42,30 @@ const ListComponent = ({queryObj,movePage, moveRead}) => {
 
             <div>
                 <div>List Component</div>
-                <ul >
+                <ul  className="flex flex-wrap container justify-center">
                
                     {listData.dtoList.map(
-                     ({pno,pname,price})   =>
+                     ({pno,pname,price,fname,reviewCnt,reviewAvg})   =>
                      
-                     <li key={pno}
-                     className="border-2 border-white text-white text-2xl font-bold"
+                     <li
+                      key={pno}
+                     className="border-2 border-white text-white text-2xl font-bold w-2/5 h-[300px] bg-sky-300 m-2 p-2 rounded-md shadow-lg"
                      onClick={()=> moveRead(pno)}
-                     >{pno} - {pname}  - {price}</li>)}
+                     >  
+                        <div className="">
+                            <div className="font-extrabold">{pno}</div>
+                            <div className="flex justify-center items-center">
+                                <img src={`http://localhost/s_${fname}`} className="w-24"  alt="No image"></img>
+                            </div>
+                            <div>
+                                <div className="text-center">{pname} - {price}</div>
+                                <div  className="text-right">리뷰 {reviewCnt} - {reviewAvg}</div>
+                            </div>
+                          
+                           
+                        </div>
+
+                         </li>)}
                 </ul>
             </div>
             <ListPageComponent movePage={movePage} {...listData}></ListPageComponent>
