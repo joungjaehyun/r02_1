@@ -15,10 +15,9 @@ const ReadPage = () => {
     return (  
         <div>
 
-            <ReadComponent bno={bno}></ReadComponent>
+            <ReadComponent bno={bno} moveList={moveList}></ReadComponent>
 
-            <button className="border-2 border-gray-400 text-xl font-bold text-white m-2" onClick={e => moveList()}> List</button>
-
+            
             <ReplyWrapper bno={bno}></ReplyWrapper>
         </div>
     );

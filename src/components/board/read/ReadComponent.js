@@ -11,7 +11,7 @@ const initState = {
     modDate: ''
 }
 
-const ReadComponent = ({ bno }) => {
+const ReadComponent = ({ bno,moveList }) => {
 
     const [board, setBoard] = useState(initState)
 
@@ -46,7 +46,13 @@ const ReadComponent = ({ bno }) => {
                 <span>Regist Date - </span>
                 {board.regDate}
             </div>
-    
+
+            <div>
+            <button 
+                className="bg-sky-400 border-2 m-2 p-2 text-white font-bold"
+                onClick={moveList}
+                >List</button>
+            </div>
 
         </div>
     );

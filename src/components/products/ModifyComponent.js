@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getProduct } from "../../api/productAPI";
+import { useEffect, useState } from "react"
+import { getProduct } from "../../api/productAPI"
 
 const initState = {
     pno: 0,
@@ -11,7 +11,7 @@ const initState = {
 
 
 
-const ReadComponent = ({ pno, moveModify, moveList }) => {
+const ModifyComponent = ({ pno, moveList, moveRead }) => {
 
     const [product, setProduct] = useState(initState)
 
@@ -24,8 +24,12 @@ const ReadComponent = ({ pno, moveModify, moveList }) => {
 
     }, [pno])
 
+
+
     return (
+
         <div>
+
             <div className="m-2 p-2 text-white font-bold">
                 <div className="m-2 p-2">
                     <span>  상품명 :  {product.pname}</span>
@@ -37,28 +41,32 @@ const ReadComponent = ({ pno, moveModify, moveList }) => {
                     <span> 가격:   {product.price} </span>
                 </div>
                 <div className="m-2 p-2 ">
-                    <ul className="list-none">
+                    <ul className="list-none flex">
                         {product.images.map((fname, idx) =>
-                            <li key={idx}>
-                                <img src={`http://localhost/${fname}`} alt="No image"></img>
+                            <li key={idx} className="m-2">
+                                <img src={`http://localhost/s_${fname}`} alt="No image"></img>
                             </li>)}
                     </ul>
                 </div>
-                <div>
-                    <button
-                        className="bg-sky-400 border-2 m-2 p-2 text-white font-bold"
-                        onClick={moveList}
-                    >List</button>
-                    <button
-                        className="bg-amber-400 border-2 m-2 p-2 text-white font-bold"
-                        onClick={() => moveModify(product.pno)}
-                    >modify</button>
-
-                </div>
             </div>
 
+            <div>
+                <button
+                    className="bg-sky-400 border-2 m-2 p-2 text-white font-bold"
+                    onClick={moveList}
+                >
+                    List
+                </button>
+                <button
+                    className="bg-red-400 border-2 m-2 p-2 text-white font-bold"
+                    onClick={moveList}
+                >
+                    Delete
+                </button>
+            </div>
         </div>
+
     );
 }
 
-export default ReadComponent;
+export default ModifyComponent;
