@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { deleteProduct, getProduct } from "../../api/productAPI"
 
 const initState = {
@@ -13,6 +13,7 @@ const initState = {
 
 const ModifyComponent = ({ pno, moveList, moveRead }) => {
 
+    const fileRef = useRef()
     const [product, setProduct] = useState(initState)
 
     useEffect(() => {
@@ -23,14 +24,41 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
 
 
     }, [pno])
-    const handleClickDelete = ()=>{
+    const handleClickDelete = () => {
 
-        deleteProduct(pno).then(data=>{
+        deleteProduct(pno).then(data => {
             alert("상품삭제")
             moveList()
         })
     }
+    const handleChage = (e) => {
 
+        product[e.target.name] = e.target.value
+        setProduct({ ...product })
+    }
+
+    const handleClickModify = () => {
+
+        const formData = new FormData();
+
+        formData.append("pname", product.pname)
+        formData.append("pdesc", product.pdesc)
+        formData.append("price", product.price)
+
+        if (product.images) {
+            for (let pi of product.images) {
+                formData.append("images", pi)
+            }
+        }
+
+        const arr = fileRef.current.files
+
+        for (let file of arr) {
+            formData.append("files", file)
+        }
+
+
+    }
 
 
     return (
@@ -39,13 +67,37 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
 
             <div className="m-2 p-2 text-white font-bold">
                 <div className="m-2 p-2">
-                    <span>  상품명 :  {product.pname}</span>
+                    {product.pno}
                 </div>
                 <div className="m-2 p-2 ">
-                    <span>상품설명:  value={product.pdesc} </span>
+                    <input
+                        className="bg-black"
+                        type="text"
+                        name="pname"
+                        value={product.pname}
+                        onChange={handleChage}
+                    ></input>
                 </div>
                 <div className="m-2 p-2 ">
-                    <span> 가격:   {product.price} </span>
+                    <input
+                        className="bg-black"
+                        type="text"
+                        name="pdesc"
+                        value={product.pdesc}
+                        onChange={handleChage}
+                    ></input>
+                </div>
+                <div className="m-2 p-2 ">
+                    <input
+                        className="bg-black"
+                        type="number"
+                        name="price"
+                        value={product.price}
+                        onChange={handleChage}
+                    ></input>
+                </div>
+                <div className="m-2 p-2">
+                    <input className=" border-2 border-gray-500" type="file" ref={fileRef} multiple name="images" ></input>
                 </div>
                 <div className="m-2 p-2 ">
                     <ul className="list-none flex">
@@ -59,6 +111,12 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
 
             <div>
                 <button
+                    className="bg-amber-400 border-2 m-2 p-2 text-white font-bold"
+                    onClick={moveList}
+                >
+                    Modify
+                </button>
+                <button
                     className="bg-sky-400 border-2 m-2 p-2 text-white font-bold"
                     onClick={moveList}
                 >
@@ -67,9 +125,10 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
                 <button
                     className="bg-red-400 border-2 m-2 p-2 text-white font-bold"
                     onClick={handleClickDelete}
-                > 
+                >
                     Delete
                 </button>
+
             </div>
         </div>
 
