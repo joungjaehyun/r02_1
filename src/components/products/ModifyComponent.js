@@ -58,6 +58,8 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
         }
         putProduct(formData).then(data=>{
             console.log(data)
+            alert(pno +"게시글이 수정되었습니다.")
+            moveRead(pno)
         })
 
     }
