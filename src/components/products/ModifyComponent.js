@@ -40,7 +40,7 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
     const handleClickModify = () => {
 
         const formData = new FormData();
-
+        formData.append("pno",product.pno)
         formData.append("pname", product.pname)
         formData.append("pdesc", product.pdesc)
         formData.append("price", product.price)
@@ -114,7 +114,7 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
             <div>
                 <button
                     className="bg-amber-400 border-2 m-2 p-2 text-white font-bold"
-                    onClick={moveList}
+                    onClick={handleClickModify}
                 >
                     Modify
                 </button>
