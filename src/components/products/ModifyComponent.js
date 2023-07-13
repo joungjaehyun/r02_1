@@ -61,6 +61,14 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
         })
 
     }
+    const handleClickDelImg = (fname)=>{
+
+        const newArr = product.images.filter(ele => ele !== fname)
+
+        product.images = newArr
+
+        setProduct({...product})
+    }
 
 
     return (
@@ -106,6 +114,7 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
                         {product.images.map((fname, idx) =>
                             <li key={idx} className="m-2">
                                 <img src={`http://localhost/s_${fname}`} alt="No image"></img>
+                                <button className="bg-red-500 m-2 p-2" onClick={()=>handleClickDelImg(fname)}>X</button>
                             </li>)}
                     </ul>
                 </div>
