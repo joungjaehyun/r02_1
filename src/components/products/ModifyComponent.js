@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getProduct } from "../../api/productAPI"
+import { deleteProduct, getProduct } from "../../api/productAPI"
 
 const initState = {
     pno: 0,
@@ -23,6 +23,13 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
 
 
     }, [pno])
+    const handleClickDelete = ()=>{
+
+        deleteProduct(pno).then(data=>{
+            alert("상품삭제")
+            moveList()
+        })
+    }
 
 
 
@@ -59,7 +66,7 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
                 </button>
                 <button
                     className="bg-red-400 border-2 m-2 p-2 text-white font-bold"
-                    onClick={moveList}
+                    onClick={handleClickDelete}
                 >
                     Delete
                 </button>
