@@ -40,7 +40,7 @@ const ReadComponent = ({ pno, moveModify, moveList }) => {
                     <span> 가격:   {product.price} </span>
                 </div>
                 <div className="m-2 p-2 ">
-                    <ul className="list-none flex">
+                    <ul className="list-none ">
                         {product.images.map((fname, idx) =>
                             <li key={idx}
                             className=" w-[50vh]"
