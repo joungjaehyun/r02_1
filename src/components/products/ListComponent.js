@@ -2,7 +2,7 @@
 //실제 axios에  전달하고 responseDTO를 받아서 처리해주는 Component
 
 import { useEffect, useState } from "react";
-import { getList } from "../../api/boardAPI";
+import { getList } from "../../api/productAPI";
 import ListPageComponent from "../common/ListPageComponent";
 
 
@@ -49,12 +49,12 @@ const ListComponent = ({queryObj,movePage, moveRead}) => {
                         <span className="ml-3 m-2">Regist Date</span>
                         </li>
                     {listData.dtoList.map(
-                     ({bno,title,replyCount,regDate})   =>
+                     ({pno,pname,price})   =>
                      
-                     <li key={bno}
+                     <li key={pno}
                      className="border-2 border-white text-white text-2xl font-bold"
-                     onClick={()=> moveRead(bno)}
-                     >{bno} - {title}  - [{replyCount}] - {regDate}</li>)}
+                     onClick={()=> moveRead(pno)}
+                     >{pno} - {pname}  - {price}</li>)}
                 </ul>
             </div>
             <ListPageComponent movePage={movePage} {...listData}></ListPageComponent>

@@ -12,6 +12,10 @@ const Board_Index = lazy(()=> import("../pages/board/IndexPage"))
 const Board_List = lazy(()=> import("../pages/board/ListPage"))
 const Board_Read = lazy(()=> import("../pages/board/ReadPage"))
 
+const Products_Index = lazy(()=> import("../pages/products/IndexPage"))
+const Products_List = lazy(()=> import("../pages/products/ListPage"))
+
+
 const router = createBrowserRouter([
     {
         path: "",
@@ -34,7 +38,18 @@ const router = createBrowserRouter([
                 element: <Suspense fallback={Loading}><Board_Read/></Suspense>
             }
         ]
+    },
+    {
+        path: "products",
+        element: <Suspense fallback={Loading}><Products_Index/></Suspense>,
+        children: [
+            {
+                path: "list",
+                element: <Suspense fallback={Loading}><Products_List/></Suspense>
+            }
+        ]
     }
+
 
 ])
 
