@@ -19,6 +19,9 @@ const ReadComponent = ({ pno, moveModify, moveList }) => {
 
         getProduct(pno).then(data => {
             setProduct(data)
+        }).catch(e =>{
+            console.log(e)
+            moveList()
         })
 
 

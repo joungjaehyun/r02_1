@@ -67,7 +67,7 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
                 <button
                     className="bg-red-400 border-2 m-2 p-2 text-white font-bold"
                     onClick={handleClickDelete}
-                >
+                > 
                     Delete
                 </button>
             </div>
