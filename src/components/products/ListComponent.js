@@ -41,13 +41,9 @@ const ListComponent = ({queryObj,movePage, moveRead}) => {
             {/* QueryObj는 필요함 search type keyword가 들어가야되기떄문 */}
 
             <div>
+                <div>List Component</div>
                 <ul >
-                    <li className="text-white font-bold">
-                        <span className="mr-2">Number </span>
-                        <span className="m-2 mr-8 text-center">Title </span>
-                        <span className="m-16">ReplyCounts</span>
-                        <span className="ml-3 m-2">Regist Date</span>
-                        </li>
+               
                     {listData.dtoList.map(
                      ({pno,pname,price})   =>
                      
