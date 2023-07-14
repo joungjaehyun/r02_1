@@ -15,7 +15,7 @@ const ModifyPage = () => {
     
     
     return (  
-        <div>
+        <div className=" font-serif">
             <div>Product Modify Page {pno}</div>
             <ModifyComponent pno={pno} moveList={moveList} moveRead={moveRead}></ModifyComponent>
         </div>

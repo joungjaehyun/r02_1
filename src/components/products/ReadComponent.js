@@ -29,15 +29,15 @@ const ReadComponent = ({ pno, moveModify, moveList }) => {
 
     return (
         <div>
-            <div className="m-2 p-2 text-white font-bold">
+            <div className="m-2 p-2 text-white font-bold font-serif">
                 <div className="m-2 p-2 text-3xl">
-                    <span>  상품명 :  {product.pname}</span>
+                    <span>  Prodcut:  {product.pname}</span>
                 </div>
                 <div className="m-2 p-2 text-3xl">
-                    <span>상품설명: {product.pdesc} </span>
+                    <span>Description: {product.pdesc} </span>
                 </div>
                 <div className="m-2 p-2 text-3xl">
-                    <span> 가격:   {product.price} </span>
+                    <span> Price:   {product.price} </span>
                 </div>
                 <div className="m-2 p-2 ">
                     <ul className="list-none ">

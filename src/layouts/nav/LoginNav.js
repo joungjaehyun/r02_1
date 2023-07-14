@@ -9,7 +9,7 @@ const LoginNav = () => {
 
    if (signed) {
       return(
-      <div>
+      <div className="font-serif">
          <div>{email}</div>
       </div>)
    }

@@ -11,7 +11,7 @@ const IndexPage = () => {
                     <Link to="/products/register">Register </Link></div>
                 
             </div>
-            <div className=" bg-white w-full border-2  bg-backImg bg-cover bg-no-repeat">
+            <div className="  w-full border-2  bg-backImg bg-cover bg-no-repeat">
                 <Outlet></Outlet>
             </div>
         </BasicLayout>

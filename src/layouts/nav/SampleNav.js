@@ -4,8 +4,8 @@ import LoginNav from "./LoginNav";
 
 const SampleNav = () => {
 
-    const todoArr = useSelector(state => state.todo)
-
+    // const todoArr = useSelector(state => state.todo)
+    // {todoArr.length}
     return (
         <div className="flex m-6 p-6 text-white font-extrabold ">
 
@@ -27,7 +27,7 @@ const SampleNav = () => {
                 <LoginNav></LoginNav>
             </div>
             <div className="ml-20 text-2xl ">
-                <span className="bg-red-300 font-extrabold">{todoArr.length}</span>
+                <span className="bg-red-300 font-extrabold"></span>
             </div>
         </div>
     );

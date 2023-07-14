@@ -14,7 +14,7 @@ const AboutPage = () => {
     return ( 
         <div  className="bg-backImg bg-cover bg-no-repeat">
         <BasicLayout></BasicLayout>
-        <div className="text-white text-center text-3xl font-bold ">
+        <div className="text-white text-center text-3xl font-bold font-serif">
         
           <p>It is combined by React.js and Spring Boot program.</p>
           <p>Back-End Side is used to Spring boot and JPA with MySQL.</p>

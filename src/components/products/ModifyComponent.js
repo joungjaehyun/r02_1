@@ -77,8 +77,8 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
 
         <div>
 
-            <div className="m-2 p-2 text-white font-bold">
-                <div className="m-2 p-2">
+            <div className="m-2 p-2 text-white font-bold font-serif">
+                <div className="m-2 p-2 text-black">
                     {product.pno}
                 </div>
                 <div className="m-2 p-2 ">

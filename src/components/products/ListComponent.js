@@ -40,8 +40,8 @@ const ListComponent = ({queryObj,movePage, moveRead}) => {
 
             {/* QueryObj는 필요함 search type keyword가 들어가야되기떄문 */}
 
-            <div>
-                <div>List Component</div>
+            <div className="font-serif">
+                <div className="font-bold">List Component</div>
                 <ul  className="flex flex-wrap container justify-center">
                
                     {listData.dtoList.map(
@@ -49,7 +49,7 @@ const ListComponent = ({queryObj,movePage, moveRead}) => {
                      
                      <li
                       key={pno}
-                     className="border-2 border-white text-white text-2xl font-bold w-1/6 h-[280px] bg-sky-300 m-2 p-2 rounded-md shadow-lg"
+                     className="border-2 border-white  text-2xl font-bold w-1/6 h-[280px] bg-gray-300/40 m-2 p-2 rounded-md shadow-lg"
                      onClick={()=> moveRead(pno)}
                      >  
                         <div className="">
@@ -58,8 +58,9 @@ const ListComponent = ({queryObj,movePage, moveRead}) => {
                                 <img src={`http://localhost/s_${fname}`} className="w-20"  alt="No image"></img>
                             </div>
                             <div>
-                                <div className="text-center text-xl">{pname} - {price}</div>
-                                <div  className="text-right text-xl">리뷰 {reviewCnt} - {reviewAvg}</div>
+                                <div className="text-center text-xl">{pname} </div>
+                                <div className="text-center text-xl mb-4">{price} won</div>
+                                <div  className="text-right text-xl">Review {reviewCnt} - {reviewAvg}</div>
                             </div>
                           
                            

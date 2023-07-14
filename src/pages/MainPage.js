@@ -9,7 +9,7 @@ const MainPage = () => {
     return (
         <div  className="bg-backImg bg-cover bg-no-repeat">
           <BasicLayout></BasicLayout>
-          <div className="text-white text-center text-3xl font-bold ">
+          <div className="text-white text-center text-3xl font-bold font-serif">
             <p>This is main Page</p>
             <p>It is Board</p>
             <p>This board side only works search and read list </p>

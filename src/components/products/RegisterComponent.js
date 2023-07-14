@@ -51,15 +51,15 @@ const RegisterComponent = ({ moveList }) => {
     }
 
     return (
-        <div className="m-2 p-2 text-white">
+        <div className="m-2 p-2 text-white font-serif">
             <div className="m-2 p-2">
-                상품명 :  <input className=" bg-black border-2 border-gray-500" type="text" name="pname" value={product.pname} onChange={handleChage}></input>
+                Product:  <input className=" bg-black border-2 border-gray-500" type="text" name="pname" value={product.pname} onChange={handleChage}></input>
             </div>
             <div className="m-2 p-2 ">
-                상품설명: <input className="bg-black border-2 border-gray-500" type="text" name="pdesc" value={product.pdesc} onChange={handleChage}></input>
+                Description: <input className="bg-black border-2 border-gray-500" type="text" name="pdesc" value={product.pdesc} onChange={handleChage}></input>
             </div>
             <div className="m-2 p-2 ">
-                가격:   <input className="bg-black border-2 border-gray-500" type="number" name="price" value={product.price} onChange={handleChage} ></input>
+                Price:   <input className="bg-black border-2 border-gray-500" type="number" name="price" value={product.price} onChange={handleChage} ></input>
             </div>
             {/* 첨부파일은 기존의 처리방식과 확연히 달라진다. 
                 처리시에 ref를 처리한다.

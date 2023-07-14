@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { requestLogin } from "../../reducers/loginSlice";
+import { useNavigate } from "react-router-dom"
+
 
 const initState = {
     email: 'user00@aaa.com',
@@ -10,8 +12,15 @@ const initState = {
 const LoginComponenet = () => {
 
     const [loginInfo, setLoginInfo] = useState({ ...initState })
-
+    
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const goList = () =>{
+        navigate("/products/list")
+    }
+
+    
 
     return (
         <div className="m-3 p-3  flex justify-center">
@@ -30,7 +39,9 @@ const LoginComponenet = () => {
                     </div>
                 
                 <div>
-                    <button className="border-2 m-2  mb-10" onClick={() => dispatch(requestLogin(loginInfo))}>LOGIN</button>
+                    <button className="border-2 m-2  mb-10" onClick={() => {dispatch(requestLogin(loginInfo))
+                    goList()}
+                    }>LOGIN</button>
                 </div>
                 </div>
                 <div className="flex justify-center items-center">
