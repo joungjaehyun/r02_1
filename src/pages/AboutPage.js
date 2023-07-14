@@ -1,12 +1,16 @@
 import CountButtons from "../components/counter/CountButtons";
 import CountDisplay from "../components/counter/CountDisplay";
 import TodoInput from "../components/todo/TodoInput";
+import useCustomLogin from "../hooks/useCustomLogin";
 import BasicLayout from "../layouts/BasicLayout";
 
 
 const AboutPage = () => {
 
-    console.log("about go")
+    const {loginInfo} = useCustomLogin()
+   
+    
+
     return ( 
         <div  className="bg-backImg bg-cover bg-no-repeat">
         <BasicLayout></BasicLayout>
