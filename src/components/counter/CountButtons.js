@@ -8,12 +8,12 @@ const CountButtons = () => {
 
     const handleClickInc = () => {
         
-        dispatch(inc())
+        dispatch(inc(2, "INC"))
     }
 
     const handleClickDec = () => {
 
-        dispatch(dec())
+        dispatch(dec(2, "DEC"))
     }
 
     return ( 

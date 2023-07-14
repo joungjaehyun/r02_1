@@ -1,3 +1,4 @@
+import TodoList from "../components/todo/TodoList";
 import BasicLayout from "../layouts/BasicLayout";
 
 
@@ -15,6 +16,7 @@ const MainPage = () => {
             <p>Reply area works CRUD process</p>
             <p>When user clicks, page number and search URL is going to be changed </p>
             <p>Also, Process is included by Power point in same git repository</p>
+            <TodoList></TodoList>
             <div className="flex justify-center items-center">
             <img  src={require('../image/backimage.jpg')} ></img>
             </div>

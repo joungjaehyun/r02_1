@@ -1,5 +1,6 @@
 import CountButtons from "../components/counter/CountButtons";
 import CountDisplay from "../components/counter/CountDisplay";
+import TodoInput from "../components/todo/TodoInput";
 import BasicLayout from "../layouts/BasicLayout";
 
 
@@ -17,11 +18,10 @@ const AboutPage = () => {
           <p>Especially, React is used Router library for making React as web program. </p>
           <p>It is made During 2 months</p>
           <CountDisplay></CountDisplay>
-          <CountDisplay></CountDisplay>
-          <CountDisplay></CountDisplay>
-          <CountDisplay></CountDisplay>
-          <CountDisplay></CountDisplay>
           <CountButtons></CountButtons>
+
+          <TodoInput></TodoInput>
+
           <div className="flex justify-center items-center">
           <img  src={require('../image/backimage.jpg')} ></img>
           </div>
