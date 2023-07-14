@@ -21,10 +21,10 @@ const AboutPage = () => {
           <p>Front-End Side is used to React.</p>
           <p>Especially, React is used Router library for making React as web program. </p>
           <p>It is made During 2 months</p>
-          <CountDisplay></CountDisplay>
+          {/* <CountDisplay></CountDisplay>
           <CountButtons></CountButtons>
 
-          <TodoInput></TodoInput>
+          <TodoInput></TodoInput> */}
 
           <div className="flex justify-center items-center">
           <img  src={require('../image/backimage.jpg')} ></img>
