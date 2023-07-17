@@ -1,5 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getCookie, setCookie } from "../util/cookieUtil";
+import { postLogin } from "../api/memberAPI";
+
+
+export const postLoginThunk = 
+    createAsyncThunk('postLoginThunk', (params)=>{
+        return postLogin(params)
+    })
 
 const loadCookie = () => {
     
@@ -33,6 +40,9 @@ const loginSlice = createSlice({
 
             return loginObj
         }
+    },
+    extraReducers: {
+        
     }
 })
 export const {requestLogin} = loginSlice.actions
