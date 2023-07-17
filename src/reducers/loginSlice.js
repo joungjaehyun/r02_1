@@ -25,7 +25,8 @@ const initState= {
     email:'',
     nickname:'',
     admin:false,
-    loading: false
+    loading: false,
+    errorMsg:null
 }
 
 const loginSlice = createSlice({
@@ -47,7 +48,13 @@ const loginSlice = createSlice({
         builder.addCase(postLoginThunk.fulfilled, (state,action)=>{
  
             console.log("fulfilled", action.payload)
-            const {email,nickname,admin} = action.payload
+            const {email,nickname,admin, errorMsg} = action.payload
+
+            if(errorMsg){
+                state.errorMsg= errorMsg
+                return
+            }
+
             state.loading = false
             state.email = email
             state.nickname = nickname

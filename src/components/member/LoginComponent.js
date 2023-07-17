@@ -5,7 +5,7 @@ import { postLoginThunk, requestLogin } from "../../reducers/loginSlice";
 
 const initState = {
     email: 'user00@aaa.com',
-    pw: '1111'
+    pw: '1234'
 }
 
 const LoginComponenet = () => {
@@ -15,6 +15,10 @@ const LoginComponenet = () => {
     const [loginInfo, setLoginInfo] = useState({ ...initState })
     
     const dispatch = useDispatch()
+    
+    const errorMsg = loginState.errorMsg
+
+    console.log("ERRORS " + errorMsg)
 
     
 
@@ -24,6 +28,7 @@ const LoginComponenet = () => {
             <div className="text-3xl bg-red-500">
               {loginState.loading ? '로그인중':''}
             </div>
+            {errorMsg ?  <div className="text-3xl bg-red-500">please check Email and password</div> : <></>}
             <div>
                 <div className="m-2 p-2 border-4 border-orange-300/75">
                     <div>
