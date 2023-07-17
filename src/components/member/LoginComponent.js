@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { requestLogin } from "../../reducers/loginSlice";
-import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
+import { postLoginThunk, requestLogin } from "../../reducers/loginSlice";
 
 
 const initState = {
@@ -11,19 +10,20 @@ const initState = {
 
 const LoginComponenet = () => {
 
+    const loginState = useSelector(state => state.login)
+
     const [loginInfo, setLoginInfo] = useState({ ...initState })
     
     const dispatch = useDispatch()
-    const navigate = useNavigate()
-
-    const goList = () =>{
-        navigate("/products/list")
-    }
 
     
 
     return (
         <div className="m-3 p-3  flex justify-center">
+            {/* Modal로 처리해 줘야된다. */}
+            <div className="text-3xl bg-red-500">
+              {loginState.loading ? '로그인중':''}
+            </div>
             <div>
                 <div className="m-2 p-2 border-4 border-orange-300/75">
                     <div>
@@ -39,8 +39,8 @@ const LoginComponenet = () => {
                     </div>
                 
                 <div>
-                    <button className="border-2 m-2  mb-10" onClick={() => {dispatch(requestLogin(loginInfo))
-                    goList()}
+                    <button className="border-2 m-2  mb-10" onClick={() => dispatch(postLoginThunk(loginInfo))
+                   
                     }>LOGIN</button>
                 </div>
                 </div>

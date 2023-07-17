@@ -23,7 +23,9 @@ const loadCookie = () => {
 
 const initState= {
     email:'',
-    signed:false
+    nickname:'',
+    admin:false,
+    loading: false
 }
 
 const loginSlice = createSlice({
@@ -40,11 +42,33 @@ const loginSlice = createSlice({
 
             return loginObj
         }
-    },
-    extraReducers: {
-        
+    },// extraReducer는 Return을 하지않아도 다음상태를 잡아준다.
+    extraReducers: (builder) =>{
+        builder.addCase(postLoginThunk.fulfilled, (state,action)=>{
+ 
+            console.log("fulfilled", action.payload)
+            const {email,nickname,admin} = action.payload
+            state.loading = false
+            state.email = email
+            state.nickname = nickname
+            state.admin = admin
+
+            setCookie("login",JSON.stringify(action.payload), 1)
+        })
+        .addCase(postLoginThunk.pending, (state,action)=>{
+
+            console.log("pending")
+            state.loading = true
+        })
+        .addCase(postLoginThunk.rejected,(state,action)=>{
+            
+            console.log("rejected")
+        })
     }
+
+    
 })
-export const {requestLogin} = loginSlice.actions
+
+// export const {requestLogin} = loginSlice.actions
 
 export default loginSlice.reducer
