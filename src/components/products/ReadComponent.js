@@ -64,13 +64,14 @@ const ReadComponent = ({ pno, moveModify, moveList }) => {
                         className="bg-amber-400 border-2 m-2 p-2 text-white font-bold"
                         onClick={() => moveModify(product.pno)}
                     >Modify</button>
+                    { email ?
                     <button
                         className="bg-red-400 border-2 m-2 p-2 text-white font-bold"
-                        onClick={() => {
-                            dispatch(addCartThunk({email,pno}))
-                        }}
-                    >Add Cart</button>
-
+                        onClick={() => 
+                             dispatch(addCartThunk({email,pno}))
+                        }
+                    >Add Cart</button>: <></>
+                    }        
 
                 </div>
             </div>
