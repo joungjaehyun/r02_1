@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getCookie, setCookie } from "../util/cookieUtil";
+import { getCookie, setCookie, removeCookie } from "../util/cookieUtil";
 import { postLogin } from "../api/memberAPI";
 
 
@@ -42,7 +42,14 @@ const loginSlice = createSlice({
             setCookie("login",JSON.stringify(loginObj), 1)
 
             return loginObj
-        }
+        },
+       
+         logout: (state) =>{
+                removeCookie('login','/')
+ 
+    
+                return initState
+            }
     },// extraReducer는 Return을 하지않아도 다음상태를 잡아준다.
     extraReducers: (builder) =>{
         builder.addCase(postLoginThunk.fulfilled, (state,action)=>{
@@ -78,5 +85,5 @@ const loginSlice = createSlice({
 })
 
 // export const {requestLogin} = loginSlice.actions
-
+export const {logout} = loginSlice.actions
 export default loginSlice.reducer

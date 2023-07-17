@@ -13,7 +13,8 @@ export default configureStore({
         counter: countSlice,
         todo: todoSlice,
         login: loginSlice,
-        cart: cartSlice
+        cart: cartSlice,
+
     }
 
 })
