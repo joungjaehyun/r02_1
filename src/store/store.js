@@ -1,3 +1,4 @@
+import cartSlice from "../reducers/cartSlice";
 import countSlice from "../reducers/countSlice";
 import loginSlice from "../reducers/loginSlice";
 import todoSlice from "../reducers/todoSlice";
@@ -11,7 +12,8 @@ export default configureStore({
         // 이름 및 값 주기 
         counter: countSlice,
         todo: todoSlice,
-        login: loginSlice
+        login: loginSlice,
+        cart: cartSlice
     }
 
 })

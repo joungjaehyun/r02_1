@@ -52,6 +52,7 @@ const loginSlice = createSlice({
 
             if(errorMsg){
                 state.errorMsg= errorMsg
+                state.loading = false
                 return
             }
 
