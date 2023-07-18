@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postLoginThunk, requestLogin } from "../../reducers/loginSlice";
+import KakaoLoginComponent from "./KakaoLoginComponent";
+
 
 
 const initState = {
@@ -44,10 +46,14 @@ const LoginComponenet = () => {
                     </div>
                 
                 <div>
-                    <button className="border-2 m-2  mb-10" onClick={() => dispatch(postLoginThunk(loginInfo))
+                    <button className="border-2 m-2 " onClick={() => dispatch(postLoginThunk(loginInfo))
                    
                     }>LOGIN</button>
                 </div>
+                <div>
+                <KakaoLoginComponent></KakaoLoginComponent>
+                </div>
+             
                 </div>
                 <div className="flex justify-center items-center">
                     <img src={require('../../image/backimage.jpg')} ></img>

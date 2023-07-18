@@ -8,6 +8,7 @@ const LoginPage = () => {
             <div>Login Page</div>
       
             <LoginComponenet></LoginComponenet>
+      
         </BasicLayout>
         </div>
      );
