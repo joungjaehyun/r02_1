@@ -33,7 +33,7 @@ const LoginComponenet = () => {
             {errorMsg ?  <div className="text-3xl bg-red-500">please check Email and password</div> : <></>}
             <div>
                 <div className="m-2 p-2 border-4 border-orange-300/75">
-                    <div>
+                    <div className="text-black font-bold">
                         <span>ID Login</span>
                     </div>
                     <div className="m-2 p-2">
@@ -44,16 +44,15 @@ const LoginComponenet = () => {
 
                         <input className="bg-black" type="password" name="pw" value={loginInfo.pw} onChange={() => { }}></input>
                     </div>
-                
+                <div className="flex m-2 p-2 justify-center">
                 <div>
-                    <button className="border-2 m-2 " onClick={() => dispatch(postLoginThunk(loginInfo))
-                   
+                    <button className="border-2 m-2 bg-black" onClick={() => dispatch(postLoginThunk(loginInfo))
                     }>LOGIN</button>
                 </div>
                 <div>
                 <KakaoLoginComponent></KakaoLoginComponent>
                 </div>
-             
+                </div>
                 </div>
                 <div className="flex justify-center items-center">
                     <img src={require('../../image/backimage.jpg')} ></img>
