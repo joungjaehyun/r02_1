@@ -1,15 +1,28 @@
+import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import { getAccessToken, getUserEmail } from "../../api/kakaoAPI";
 
 
 const KakaoRedirectPage = () => {
 
     const [searchParams] = useSearchParams()
     
-    const code = searchParams.get('code')
+    const authCode = searchParams.get('code')
+
+    useEffect(()=>{
+
+        getAccessToken(authCode).then( accessToken => {
+            console.log(accessToken)
+            getUserEmail(accessToken).then(email =>{
+                console.log(email)
+            })
+        })
+
+    },[authCode])
 
     return (
         <div>
-            {code}
+            {authCode}
         </div>
       );
 }

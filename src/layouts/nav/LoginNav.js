@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import CartNav from "./CartNav";
 import { logout } from "../../reducers/loginSlice";
-import KakaoLoginComponent from "../../components/member/KakaoLoginComponent";
 
 
 
