@@ -1,18 +1,39 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { requestLogin } from "../../reducers/loginSlice";
 // import { getAccessToken, getUserEmail } from "../../api/kakaoAPI";
 
 
 const KakaoRedirectPage = () => {
 
     const [searchParams] = useSearchParams()
-    
+
     const authCode = searchParams.get('code')
 
-    useEffect(()=>{
+    const dispatch = useDispatch()
 
-        axios.get(`http://localhost:8080/api/member/kakao?code=${authCode}`)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+
+        axios.get(`http://localhost:8080/api/member/kakao?code=${authCode}`).then(res => {
+
+
+            console.log(res.data)
+            const memberInfo = res.data
+
+            const nickname = memberInfo.nickname
+
+            dispatch(requestLogin(memberInfo))
+            if (nickname === 'SOCIAL_MEMBER') {
+                navigate("/member/modify")
+            } else {
+                navigate("/")
+            }
+
+        })
         // getAccessToken(authCode).then( accessToken => {
         //     console.log(accessToken)
         //     getUserEmail(accessToken).then(email =>{
@@ -20,13 +41,13 @@ const KakaoRedirectPage = () => {
         //     })
         // })
 
-    },[authCode])
+    }, [authCode])
 
     return (
         <div>
             {authCode}
         </div>
-      );
+    );
 }
- 
+
 export default KakaoRedirectPage;
