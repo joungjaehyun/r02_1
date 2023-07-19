@@ -20,9 +20,13 @@ const LoginComponenet = () => {
     
     const errorMsg = loginState.errorMsg
 
-    console.log("ERRORS " + errorMsg)
+    // console.log("ERRORS " + errorMsg)
 
-    
+    const handleChange= (e) =>{
+
+        loginInfo[e.target.name] = e.target.value
+        setLoginInfo({ ...loginInfo })
+    }
 
     return (
         <div className="m-3 p-3  flex justify-center">
@@ -38,11 +42,11 @@ const LoginComponenet = () => {
                     </div>
                     <div className="m-2 p-2">
                         
-                        <input className="bg-black" type="text" name="email" value={loginInfo.email} onChange={() => { }}></input>
+                        <input className="bg-black" type="text" name="email" value={loginInfo.email} onChange={ handleChange}></input>
                     </div>
                     <div className="m-2 p-2">
 
-                        <input className="bg-black" type="password" name="pw" value={loginInfo.pw} onChange={() => { }}></input>
+                        <input className="bg-black" type="password" name="pw" value={loginInfo.pw} onChange={ handleChange}></input>
                     </div>
                 <div className="flex m-2 p-2 justify-center">
                 <div>
