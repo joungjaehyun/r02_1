@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getCookie, setCookie, removeCookie } from "../util/cookieUtil";
 import { postLogin } from "../api/memberAPI";
+import { act } from "react-dom/test-utils";
 
 
 export const postLoginThunk = 
@@ -26,7 +27,8 @@ const initState= {
     nickname:'',
     admin:false,
     loading: false,
-    errorMsg:null
+    errorMsg:null,
+    
 }
 
 const loginSlice = createSlice({
@@ -55,19 +57,17 @@ const loginSlice = createSlice({
  
             console.log("fulfilled", action.payload)
             const {email,nickname,admin, errorMsg} = action.payload
-
+            
             if(errorMsg){
                 state.errorMsg= errorMsg
                 state.loading = false
                 return
             }
-
-            state.loading = false
-            state.email = email
-            state.nickname = nickname
-            state.admin = admin
-
+            
+          
             setCookie("login",JSON.stringify(action.payload), 1)
+
+            return {...action.payload, loading: false}
         })
         .addCase(postLoginThunk.pending, (state,action)=>{
 
